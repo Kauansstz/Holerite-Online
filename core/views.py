@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 def home(request):
     if request.method == 'GET':
-        return render(request, 'cadastro.html')
+        return render(request, 'index.html')
     else:
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -15,7 +15,7 @@ def home(request):
     if user:
         print('Ja existe')
 
-    return render(request, 'index.html')
+    return render(request, 'cadastro.html')
 
 def cadastro(request):
     if request.method == 'GET':

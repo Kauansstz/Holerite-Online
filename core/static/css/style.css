@@ -1,0 +1,33 @@
+.master{
+    /* display: flex; */
+    text-align: center;
+    /* justify-content: center; */
+   
+}
+
+#login{
+    margin-top: 40px; 
+    font-size: 60px;
+}
+
+
+.boss{
+    display: flexbox;
+    font-family: 'Times New Roman', Times, serif; 
+    margin-top: 200px;
+    justify-content: center;
+}
+
+#bt_entrada{
+    background-color: blue; 
+    color: white; 
+    width: 180px; 
+    height: 40px; 
+   
+    font-size: 20px;
+}
+
+#username{
+    width: 120px; 
+   
+}
