@@ -1,11 +1,21 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'img/grupo.webp' %}">
+    <title>Menu</title>
 </head>
 <body>
-    
+    <div style="text-align: right; font-family: Arial, Helvetica, sans-serif;" >
+        <label for="">Home</label> |
+        <label for="">Cartegoria</label> |
+        <label for="">Configuração</label> |
+        <label for="">Sair</label> 
+    </div> 
+    <h1>
+        <img id="image"  src="{% static 'img/grupo.webp'%}" alt="MundialMix">
+    </h1>
 </body>
 </html>

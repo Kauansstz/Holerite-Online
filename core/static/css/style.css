@@ -1,27 +1,38 @@
   .master{
-    display: flex; 
-    text-align: center; 
-    justify-content: center; 
-   
+    text-align: center;  
+    box-shadow: 0px 15px 15px rgb(22,22,22);
+    border-radius: 10px;
+    margin: 0 auto;
+    background:  white;
+    width: 500px;
+    height: 400px;
+    
  } 
 
-#login{
-    margin-top: 40px; 
+#image02{
+    margin-top:150px; 
     font-size: 60px;
 }
 
 
 .boss{
-    display: flex;
     font-family: 'Times New Roman', Times, serif;  
-    margin-top: 100px;
-    justify-content: center;
+    margin-top: 60px;
+    
 }
 
 #bt_entrada{
     background-color: blue; 
     color: rgb(255, 255, 255); 
-    width: 110px; 
+    width: 200px; 
     height: 40px; 
     font-size: 20px;
+    
 }  
+
+
+
+#image{
+    display: flex;
+    width: 10px;
+}
