@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import home
+from .views import home, menu, cartegoria, configuracao
+from django.contrib.auth import views
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -7,6 +8,11 @@ from django.conf import settings
 
 urlpatterns = [
     path('', home, name='index'),
-    path('usuarios/',home, name='menu'),
+    path('menu',menu, name='menu'),
+    path('configuracao', configuracao, name='configuracao'),
+    path('cartegoria',cartegoria, name='cartegoria'),
+    path('logout/', views.LogoutView.as_view(next_page='index'), name='logout'),
+    
+    
     # static('index', index, name='index')
 ]

@@ -1,24 +1,24 @@
+  /* Configuração de index */
   .master{
     text-align: center;  
     box-shadow: 0px 15px 15px rgb(22,22,22);
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 0 auto;
     background:  white;
     width: 500px;
-    height: 400px;
-    
+    height: 500px;
  } 
 
-#image02{
-    margin-top:150px; 
+#logo-grupo{
+    margin-top:120px; 
     font-size: 60px;
+    
 }
 
 
 .boss{
-    font-family: 'Times New Roman', Times, serif;  
-    margin-top: 60px;
-    
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top: 30px;
 }
 
 #bt_entrada{
@@ -27,12 +27,29 @@
     width: 200px; 
     height: 40px; 
     font-size: 20px;
+    margin-top: 40px;
     
-}  
-
-
-
-#image{
-    display: flex;
-    width: 10px;
 }
+
+.conf{
+    display: flex;
+    justify-content: left;
+    margin-left: 150px ;
+}
+
+
+
+ /* Configuração de index */
+ /* Configuração do Menu */
+
+  #cabecalho{
+    text-align: right;
+    color: black;
+    text-decoration: none;
+  }
+
+  #image{
+    width: 100px;
+    margin-top: -100px ;
+}
+ /* Configuração do Menu */

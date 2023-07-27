@@ -10,12 +10,14 @@ def home(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         print(username)
-
+        print(password)
+        
         user = User.objects.get(username=username)
-        # pas = User.objects.get(password=password)
+        
+        
 
     if user:
-        return render(request, 'menu.html')
+            return render(request, 'menu.html')
 
     else:
         return render(request, 'cadastro.html')
@@ -36,6 +38,18 @@ def cadastro(request):
         else:
             return render(request, 'index.html')
 
+# Identificar se o usuário existe
+# Configuração do Menu
 def menu(request):
     return render(request, 'menu.html')
-# Identificar se o usuário existe
+
+def cartegoria(request):
+    return render(request, 'cartegoria.html')
+
+def configuracao(request):
+    return render(request, 'configuracao.html')
+
+def usuario(request):
+    return render(request, 'usuario.html')
+# Configuração do Menu
+
