@@ -1,11 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'img/auth-bg.jpg' %}">
+    <link rel="stylesheet" href="{% static 'img/grupo-mundialmix-.png' %}">
+    <title>Cadastro de Usuário</title>
 </head>
-<body>
-    opa
+<body style="background: url(static/img/auth-bg.jpg) ;">
+    <form action="">
+        <div class="logo-cas">
+            <h1 id="logo-grupo">
+              <img src="{% static 'img/grupo-mundialmix-.png' %}" alt="">
+            </h1>
+            <label for="Nome" id="name"> Nome completo </label>
+            <input type="text" placeholder="Nome" id="bnt_name" name="Nome"/>
+            <label for="mail" id="mail"> Email </label>
+            <input type="text" placeholder="Email" id="bnt_mail" name="mail"/>
+            <label for="nickname" id="nickname"> Login </label>
+            <input type="text" placeholder="Login" id="bnt_nickname" name="nickname"/>
+            <label for="pass" id="pass"> Senha </label>
+            <input type="text" placeholder="Senha" id="bnt_pass" name="pass"/> 
+        </div>
+        
+    </form>
+    
+    
 </body>
 </html>

@@ -1,4 +1,6 @@
 {% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,16 +8,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="{% static 'img/grupo.webp' %}">
+        
         <title>Holerite do colaborador</title>
     </head>
-    <body>
+    <body >
         <form action="{% url 'index'%}" method="post">{% csrf_token %}
             <div>
-                <h3 id="cabecalho"> 
-                    <a href="{% url 'cartegoria' %}">Cartegoria</a> |
-                    <a href="{% url 'configuracao' %}">Configuração</a> |
-                    <a href="{% url 'logout' %}">Sair</a> 
+                <h3 class="cabecalho" > 
+                    <a href="{% url 'cartegoria' %}" style="text-decoration: none; color: black;">
+                        Cartegoria
+                    </a> |
+                    <a href="{% url 'configuracao' %}" style="text-decoration: none; color: black;">
+                        Configuração
+                    </a> |
+                    <a href="{% url 'logout' %}" style="text-decoration: none; color: black;">
+                        Sair
+                    </a> 
                 </h3>
+               
                 <img id="image"  src="{% static 'img/grupo.webp'%}" alt="MundialMix">
             </div> 
         </form>
