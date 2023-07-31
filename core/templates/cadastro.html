@@ -10,20 +10,31 @@
     <title>Cadastro de Usuário</title>
 </head>
 <body style="background: url(static/img/auth-bg.jpg) ;">
-    <form action="">
+    <form action="{%url 'index'%}">
         <div class="logo-cas">
             <h1 id="logo-grupo">
               <img src="{% static 'img/grupo-mundialmix-.png' %}" alt="">
             </h1>
-            <label for="Nome" id="name"> Nome completo </label>
+            <!-- formulario -->
+            <label for="Nome" id="name"> Nome completo: </label>
             <input type="text" placeholder="Nome" id="bnt_name" name="Nome"/>
-            <label for="mail" id="mail"> Email </label>
+
+            <label for="mail" id="mail"> Email: </label>
             <input type="text" placeholder="Email" id="bnt_mail" name="mail"/>
-            <label for="nickname" id="nickname"> Login </label>
-            <input type="text" placeholder="Login" id="bnt_nickname" name="nickname"/>
-            <label for="pass" id="pass"> Senha </label>
-            <input type="text" placeholder="Senha" id="bnt_pass" name="pass"/> 
+
+            <label for="nickname" id="nickname"> Login: </label>
+            <input type="text" placeholder="Login" id="bnt_nickname" name="nickname">
+
+            <label for="pass" id="pass"> Senha: </label>
+            <input type="password" placeholder="Senha" id="bnt_pass" name="pass"/>
+            <!-- formulario -->
+            <!-- botoes -->
+            <button id="cadastrar">Cadastrar</button>
+            <button id="voltar">Voltar</button>
+            <!-- botoes -->
         </div>
+
+        
         
     </form>
     

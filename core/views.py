@@ -24,20 +24,24 @@ def home(request):
     
 
 def cadastro(request):
-    if request.method == 'GET':
-        return render(request, 'cadastro.html')
-    else:
+    try:
+        if request.method == 'GET':
+            return render(request, 'cadastro.html')
+        
+            
+    except:
         username = request.POST.get('username')
         password = request.POST.get('password')
-        
+            
         user = User.objects.get(username=username)
-
-        user = True
-        if user:
+        pas = User.objects.get(password=password)
+        
+        user = False
+        pas = False
+        if user and pas == True:
          return render(request, 'cadastro.html')
-        else:
-            return render(request, 'index.html')
-
+        
+    
 # Identificar se o usuário existe
 # Configuração do Menu
 def menu(request):
@@ -52,4 +56,10 @@ def configuracao(request):
 def usuario(request):
     return render(request, 'usuario.html')
 # Configuração do Menu
+
+# Cadastramento
+def voltar(request):
+    return render(request, 'index.html')
+
+# Cadastramento
 
