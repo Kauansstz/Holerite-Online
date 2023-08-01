@@ -1,9 +1,12 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from .models import login
+
 # Create your views here.
 
 # Identificar se o usuário existe
 def home(request):
+    # try:
     if request.method == 'GET':
         return render(request, 'index.html')
     else:
@@ -11,37 +14,29 @@ def home(request):
         password = request.POST.get('password')
         print(username)
         print(password)
+       
         
-        user = User.objects.get(username=username)
+    user = authenticate(request, username=username, password=password)
         
-        
-
-    if user:
-            return render(request, 'menu.html')
-
+    if user is not None:
+            # Se o usuário e a senha estiverem corretos, faça o login do usuário
+        login(request, user)
+        return render(request, 'menu.html')
     else:
-        return render(request, 'cadastro.html')
+            # Se o usuário ou a senha estiverem incorretos, renderize o template de login novamente
+        return render(request, 'index.html', {'error_message': 'Usuário ou senha incorreto.'})
     
-
+        
 def cadastro(request):
-    try:
-        if request.method == 'GET':
-            return render(request, 'cadastro.html')
+   return render(request, 'cadastro.html')
         
-            
-    except:
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-            
-        user = User.objects.get(username=username)
-        pas = User.objects.get(password=password)
-        
-        user = False
-        pas = False
-        if user and pas == True:
-         return render(request, 'cadastro.html')
-        
-    
+def login(request):
+    nv_usuario = login()
+    nv_usuario.nome = request.POST.get('nome')
+    nv_usuario.email = request.POST.get('email')
+    nv_usuario.user = request.POST.get('nickname')
+    nv_usuario.password = request.POST.get('pass')
+    nv_usuario.save()
 # Identificar se o usuário existe
 # Configuração do Menu
 def menu(request):

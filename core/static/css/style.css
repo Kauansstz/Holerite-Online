@@ -46,6 +46,11 @@
     margin-top: 30px;
     font-size: 13px;
 }
+.erro{
+    text-align: center;
+    color: red;
+    height: 5px;
+}
 
  /* Configuração de index */
  /* Configuração do Menu */

@@ -12,15 +12,16 @@
 <body style="background: url(static/img/auth-bg.jpg) ;">
     <form action="{%url 'index'%}">
         <div class="logo-cas">
+            {{ form.as_p }}
             <h1 id="logo-grupo">
               <img src="{% static 'img/grupo-mundialmix-.png' %}" alt="">
             </h1>
             <!-- formulario -->
             <label for="Nome" id="name"> Nome completo: </label>
-            <input type="text" placeholder="Nome" id="bnt_name" name="Nome"/>
+            <input type="text" placeholder="Nome" id="bnt_name" name="nome"/>
 
-            <label for="mail" id="mail"> Email: </label>
-            <input type="text" placeholder="Email" id="bnt_mail" name="mail"/>
+            <label for="Email" id="mail"> Email: </label>
+            <input type="text" placeholder="Email" id="bnt_mail" name="email"/>
 
             <label for="nickname" id="nickname"> Login: </label>
             <input type="text" placeholder="Login" id="bnt_nickname" name="nickname">
