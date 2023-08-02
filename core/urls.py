@@ -13,7 +13,6 @@ urlpatterns = [
     path('cadastro',cadastro, name='cadastro'),
     path('configuracao', configuracao, name='configuracao'),
     path('cartegoria',cartegoria, name='cartegoria'),
-   
     path('logout/', views.LogoutView.as_view(next_page='index'), name='logout'),
     
     
