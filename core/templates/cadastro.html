@@ -1,4 +1,5 @@
 {% load static %}
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +13,11 @@
 <body style="background: url(static/img/auth-bg.jpg) ;">
     <form action="{%url 'index'%}">
         <div class="logo-cas">
-            {{ form.as_p }}
+            <!-- {{ form.as_p }} -->
             <h1 id="logo-grupo">
               <img src="{% static 'img/grupo-mundialmix-.png' %}" alt="">
             </h1>
+            {% bootstrap_messages %} {{ error_message }}
             <!-- formulario -->
             <label for="Nome" id="name"> Nome completo: </label>
             <input type="text" placeholder="Nome" id="bnt_name" name="nome"/>
