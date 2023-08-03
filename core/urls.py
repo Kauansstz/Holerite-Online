@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, menu, cartegoria, configuracao, cadastro
+from .views import home, menu, holerite, configuracao, cadastro, rendimento
 from django.contrib.auth import views
 
 
@@ -12,7 +12,8 @@ urlpatterns = [
     path('menu/',menu, name='menu'),
     path('cadastro',cadastro, name='cadastro'),
     path('configuracao', configuracao, name='configuracao'),
-    path('cartegoria',cartegoria, name='cartegoria'),
+    path('holerite',holerite, name='holerite'),
+    path('rendimento',rendimento, name='rendimento'),
     path('logout/', views.LogoutView.as_view(next_page='index'), name='logout'),
     
     

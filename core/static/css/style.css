@@ -75,6 +75,7 @@
 }
 body{
     height: 100vh;
+    background-color: gray;
 }
 nav.menu-lateral{
     width: 80px;
@@ -85,8 +86,12 @@ nav.menu-lateral{
     position: fixed;
     top: 0;
     left: 0;
+    overflow: hidden;
+    transition: 1s;
 } 
-
+nav.menu-lateral:hover{
+    width: 300px;
+}
 .btn-expandir{
     width: 100px;
     padding-left: 10px;

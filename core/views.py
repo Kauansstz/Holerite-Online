@@ -61,14 +61,14 @@ def cadastro(request):
 def menu(request):
     return render(request, 'menu.html')
 
-def cartegoria(request):
-    return render(request, 'cartegoria.html')
+def rendimento(request):
+    return render(request, 'rendimento.html')
 
 def configuracao(request):
     return render(request, 'configuracao.html')
 
-# def usuario(request):
-#     return render(request, 'usuario.html')
+def holerite(request):
+    return render(request, 'holerite.html')
 # Configuração do Menu
 
 # Cadastramento
