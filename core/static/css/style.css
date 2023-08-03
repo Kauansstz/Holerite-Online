@@ -18,7 +18,7 @@
 
 .boss{
     font-family:Arial, Helvetica, sans-serif;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 #bt_entrada{
@@ -35,6 +35,7 @@
     display: flex;
     justify-content: left;
     margin-left: 150px ;
+    margin-top: 20px;
 }
 
 .cadas{
@@ -55,7 +56,7 @@
  /* Configuração de index */
  /* Configuração do Menu */
 
-  .cabecalho{
+  /* .cabecalho{
       text-align: right;
       color: black;
       text-decoration: none;
@@ -65,7 +66,63 @@
     width: 100px;
     margin-top: -100px ;
     
+} */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
 }
+body{
+    height: 100vh;
+}
+nav.menu-lateral{
+    width: 80px;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    padding:  40px 0 40px 1%;
+    box-shadow: 3px 0 0 green;
+    position: fixed;
+    top: 0;
+    left: 0;
+} 
+
+.btn-expandir{
+    width: 100px;
+    padding-left: 10px;
+    color: white;
+    font-size: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* ul{
+    height: 100%;
+    list-style-type: none;
+
+} */
+
+.menu-lateral a{
+    display: flex;
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 30px 4%;
+    margin-bottom: 20px;
+
+}
+.txt-link{
+    margin-left: 20px;
+}
+
+.holerite:hover{
+    background: violet;
+    transition: 2s;
+}
+.icon{
+    margin-left: 20px;
+}
+
  /* Configuração do Menu */
 
  /* Configuração do cadastro */
@@ -77,12 +134,13 @@
     background:  white;
     width: 500px;
     height: 500px;
+    margin-top: 50px;
  }
 
  #name{
     display: flex;
     justify-content: left;
-    margin-top: -20px;
+    margin-top: 50px;
     margin-left: 100px;
  }
 #bnt_name{

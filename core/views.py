@@ -24,49 +24,37 @@ def home(request, ):
 def cadastro(request):
     if request.method == 'POST':
         # Verificar se não tem login e email duplicado
-        username = request.POST.get('username')
+        username = request.POST.get('nickname')
         mail = request.POST.get('email')
-        consulta_user = banco.sql_query(f"""SELECT COUNT(*) FROM tabela_login WHERE login  = '{username.upper()}""")
+        consulta_user = banco.sql_query(f"""SELECT COUNT(*) FROM tabela_login WHERE login  = '{username.upper()}'""")
         consulta_mail = banco.sql_query(f"""SELECT COUNT(*) FROM tabela_login WHERE email = '{mail.upper()}'""")
         # Verificar se não tem login e email duplicado
-        nome = request.POST.get('name')
-        login = request.POST.get('login')
-        senha = request.POST.get('senha')
+        nome = request.POST.get('nome')
+        login = request.POST.get('nickname')
+        senha = request.POST.get('pass')
         email = request.POST.get('email')
         print(username)
-        if consulta_user[0][0] == 1:
-            return render(request, 'cadastro.html', {'error_menssage': 'Usuário ja cadastrado'})
-        if consulta_mail[0][0] == 1:
-            return render(request, 'cadastro.html', {'error_menssage': 'Email já cadastrado'})
+        
+        if consulta_user[0][0] > 0:
+            return render(request, 'cadastro.html', {'error_message': 'Usuário ja cadastrado'})
+        elif consulta_mail[0][0] > 0:
+            return render(request, 'cadastro.html', {'error_message': 'Email já cadastrado'})
         else:
-            banco.sql_inserir(f"""INSERIR INTO tabela_login
+            banco.sql_inserir(f"""INSERT INTO tabela_login
                       ( nome,
                         email,
                         login,
                         senha)
                       VALUES(
-                        {nome.upper()},
-                        {email.upper()},
-                        {login.upper()},
-                        {senha.upper()}
+                        '{nome.upper()}',
+                        '{email.upper()}',
+                        '{login.upper()}',
+                        '{senha.upper()}'
                       )""")
-            
+            print(login)
+            return render(request, 'index.html', {'error_message':'Usuário cadastrado!' })
     else:
         return render(request, 'cadastro.html')
-
-   
-# def incluir(nome, email, login, senha):
-#     banco.sql_inserir(f"""INSERIR INTO tabela_login
-#                       ( nome,
-#                         email,
-#                         login,
-#                         senha)
-#                       VALUES(
-#                         {nome},
-#                         {email},
-#                         {login},
-#                         {senha}
-#                       )""")
 
 # Identificar se o usuário existe
 # Configuração do Menu
