@@ -12,6 +12,12 @@
         <title>Painel do colaborador</title>
     </head>
     <body >
+        <h1 id="ph">Painel Holerite</h1>
+        <h2 id="notificion">Notícias!</h2>
+        <label for="" id="descricao">Alteração do Salário de 1.800 para 2.100
+            <span class="sub"><i class="bi bi-graph-up-arrow"></i></span>
+        </label>
+        <label for="" id="descricao">admissão - 2020</label>
         <form action="{% url 'index'%}" method="post">{% csrf_token %}
             <nav class="menu-lateral">
                 <div class="btn-expandir">
@@ -45,7 +51,6 @@
                     
                 </ul>
             </nav>
-          
         </form>
         
     </body>
