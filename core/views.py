@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate
+from django.core.cache import cache
 from .models import login
 import banco
 
 # Create your views here.
-
+cache.clear()
 # Identificar se o usuário existe
 def home(request, ):
     if request.method == 'POST':
@@ -13,6 +13,7 @@ def home(request, ):
         resultado = banco.sql_query(f"""SELECT COUNT(*) FROM tabela_login WHERE login  = '{username.upper()}' and senha = '{password.upper()}'""")
         print(username, password)
         if resultado[0][0] == 1:
+            request.session['usuario'] = username
             return render(request, 'menu.html')
         else:
             return render(request, 'index.html', {'error_message': 'Usuário ou senha incorreto.'})
@@ -20,7 +21,8 @@ def home(request, ):
         return render(request, 'index.html')
 
     
-        
+
+
 def cadastro(request):
     if request.method == 'POST':
         # Verificar se não tem login e email duplicado
@@ -59,21 +61,41 @@ def cadastro(request):
 # Identificar se o usuário existe
 # Configuração do Menu
 def menu(request):
-    return render(request, 'menu.html')
+    request.session.clear()
+    logado = request.session.get('usuario')
+    print(logado)
+    if logado == None:
+        return render(request, 'index.html')
+    else:
+        
+        return render(request, 'menu.html')
 
 def rendimento(request):
-    return render(request, 'rendimento.html')
+    request.session.clear()
+    logado = request.session.get('usuario')
+    print(logado)
+    if logado == None:
+        return render(request, 'index.html')
+    else:
+        return render(request, 'rendimento.html')
 
-def configuracao(request):
-    return render(request, 'configuracao.html')
 
 def holerite(request):
-    return render(request, 'holerite.html')
+    request.session.clear()
+    logado = request.session.get('usuario')
+    print(logado)
+    request.session.clear()
+    if logado == None:
+        return render(request, 'index.html')
+    else:
+        return render(request, 'holerite.html')
 # Configuração do Menu
 
 # Cadastramento
 def voltar(request):
+    request.session.clear()
     return render(request, 'index.html')
 
 # Cadastramento
+
 

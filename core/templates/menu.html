@@ -14,10 +14,10 @@
     <body >
         <h1 id="ph">Painel Holerite</h1>
         <h2 id="notificion">Notícias!</h2>
-        <label for="" id="descricao">Alteração do Salário de 1.800 para 2.100
+        <label for="" id="descricao" style="color: white;">- Alteração do Salário de 1.800 para 2.100
             <span class="sub"><i class="bi bi-graph-up-arrow"></i></span>
         </label>
-        <label for="" id="descricao">admissão - 2020</label>
+        <label for="" id="descricao" style="color: white;">- admissão - 2020</label>
         <form action="{% url 'index'%}" method="post">{% csrf_token %}
             <nav class="menu-lateral">
                 <div class="btn-expandir">
@@ -34,12 +34,6 @@
                         <a href="{% url 'rendimento'%}">
                             <span class="icon"><i class="bi bi-cash-stack"></i></span>
                             <span class="txt-link">Rendimento</span>
-                        </a>
-                    </li>
-                    <li class="holerite">
-                        <a href="{%url 'configuracao'%}">
-                            <span class="icon"><i class="bi bi-gear"></i></span>
-                            <span class="txt-link">Configurações</span>
                         </a>
                     </li>
                     <li class="holerite">
