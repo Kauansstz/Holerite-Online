@@ -90,11 +90,11 @@ def holerite(request):
         return render(request, 'holerite.html')
 # Configuração do Menu
 
-# Cadastramento
+# voltar
 def voltar(request):
     request.session.clear()
     return render(request, 'index.html')
+# voltar
 
-# Cadastramento
 
 
