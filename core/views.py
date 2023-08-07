@@ -64,30 +64,29 @@ def menu(request):
     request.session.clear()
     logado = request.session.get('usuario')
     print(logado)
-    if logado == None:
+    if logado is None:
         return render(request, 'index.html')
     else:
         
         return render(request, 'menu.html')
 
 def rendimento(request):
-    request.session.clear()
     logado = request.session.get('usuario')
     print(logado)
-    if logado == None:
+    if logado is None:
         return render(request, 'index.html')
     else:
+        request.session.clear()
         return render(request, 'rendimento.html')
 
 
 def holerite(request):
-    request.session.clear()
     logado = request.session.get('usuario')
     print(logado)
-    request.session.clear()
-    if logado == None:
+    if logado is  None:
         return render(request, 'index.html')
     else:
+        request.session.clear()
         return render(request, 'holerite.html')
 # Configuração do Menu
 
