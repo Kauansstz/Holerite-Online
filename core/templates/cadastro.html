@@ -6,17 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'img/auth-bg.jpg' %}">
-    <link rel="stylesheet" href="{% static 'img/grupo-mundialmix-.png' %}">
+    <link rel="stylesheet" href="{% static 'img/fundo.jpeg' %}">
+    <link rel="stylesheet" href="{% static 'img/carteira.ico' %}">
     <title>Cadastro de Usuário</title>
 </head>
-<body style="background: url(static/img/auth-bg.jpg) ;">
+<body style="background: url(static/img/fundo.jpeg) ;">
     <form action="{%url 'cadastro'%}" method="post">{% csrf_token %}
         <div class="logo-cas">
             <!-- {{ form.as_p }} -->
             <h1 id="logo-grupo">
-              <img src="{% static 'img/grupo-mundialmix-.png' %}" alt="">
+                <img src="{% static 'img/carteira.ico' %}" alt="" style="width: 80px;" >
             </h1>
+            <h1><label for="" id="frase">Holerite Online</label> </h1>
             {% bootstrap_messages %} {{ error_menssage }}
             <!-- formulario -->
             <label for="Nome" id="name"> Nome completo: </label>

@@ -41,7 +41,7 @@ def cadastro(request):
             return render(request, 'cadastro.html', {'error_message': 'Usuário ja cadastrado'})
         elif consulta_mail[0][0] > 0:
             return render(request, 'cadastro.html', {'error_message': 'Email já cadastrado'})
-        else:
+        elif consulta_mail[0][0] and consulta_user[0][0] == 0:
             banco.sql_inserir(f"""INSERT INTO tabela_login
                       ( nome,
                         email,
@@ -55,28 +55,32 @@ def cadastro(request):
                       )""")
             print(login)
             return render(request, 'index.html', {'error_message':'Usuário cadastrado!' })
+        else:
+            return render(request, 'index.html')
     else:
         return render(request, 'cadastro.html')
 
 # Identificar se o usuário existe
 # Configuração do Menu
 def menu(request):
-    request.session.clear()
+    
     logado = request.session.get('usuario')
     print(logado)
     if logado is None:
+        request.session.clear()
         return render(request, 'index.html')
     else:
-        
         return render(request, 'menu.html')
 
 def rendimento(request):
+   
     logado = request.session.get('usuario')
     print(logado)
-    if logado is None:
+    if logado  is None:
+        request.session.clear()
         return render(request, 'index.html')
     else:
-        request.session.clear()
+        
         return render(request, 'rendimento.html')
 
 
