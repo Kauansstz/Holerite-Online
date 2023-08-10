@@ -1,19 +1,27 @@
 from django.shortcuts import render
 from django.core.cache import cache
-from .models import login
+from django.contrib.auth import login
 import banco
+from cx_Oracle import IntegrityError
+from aut.autenticacao import OtherSystemAuthBackend
 
 # Create your views here.
 cache.clear()
 # Identificar se o usuário existe
-def home(request, ):
+def home(request ):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        resultado = banco.sql_query(f"""SELECT COUNT(*) FROM tabela_login WHERE login  = '{username.upper()}' and senha = '{password.upper()}'""")
-        print(username, password)
-        if resultado[0][0] == 1:
-            request.session['usuario'] = username
+
+        user = OtherSystemAuthBackend.authenticate('', 
+                                                        request, 
+                                                        username=username.strip(), 
+                                                        password=password, 
+                                                        backend='autenticacao.criar_usuario.OtherSystemAuthBackend')
+        print(user)
+        if user is not None:
+        # Authenticates the user in the admin session
+            login(request, user)
             return render(request, 'menu.html')
         else:
             return render(request, 'index.html', {'error_message': 'Usuário ou senha incorreto.'})
@@ -24,26 +32,18 @@ def home(request, ):
 
 
 def cadastro(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and  request.user.is_authenticated:
         # Verificar se não tem login e email duplicado
-        username = request.POST.get('nickname')
-        mail = request.POST.get('email')
-        consulta_user = banco.sql_query(f"""SELECT COUNT(*) FROM tabela_login WHERE login  = '{username.upper()}'""")
-        consulta_mail = banco.sql_query(f"""SELECT COUNT(*) FROM tabela_login WHERE email = '{mail.upper()}'""")
         # Verificar se não tem login e email duplicado
         nome = request.POST.get('nome')
         login = request.POST.get('nickname')
         senha = request.POST.get('pass')
         email = request.POST.get('email')
-        print(username)
+        print(nome)
         
-        if consulta_user[0][0] > 0:
-            return render(request, 'cadastro.html', {'error_message': 'Usuário ja cadastrado'})
-        elif consulta_mail[0][0] > 0:
-            return render(request, 'cadastro.html', {'error_message': 'Email já cadastrado'})
-        elif consulta_mail[0][0] and consulta_user[0][0] == 0:
-            banco.sql_inserir(f"""INSERT INTO tabela_login
-                      ( nome,
+        try:   
+            banco.sql_inserir(f"""INSERT INTO tb_login
+                      ( nome_completo,
                         email,
                         login,
                         senha)
@@ -55,17 +55,17 @@ def cadastro(request):
                       )""")
             print(login)
             return render(request, 'index.html', {'error_message':'Usuário cadastrado!' })
-        else:
-            return render(request, 'index.html')
+        except IntegrityError:
+            return render(request, 'cadastro.html', {'error_message': 'login ou email já cadastrado!'})
     else:
         return render(request, 'cadastro.html')
 
 # Identificar se o usuário existe
 # Configuração do Menu
 def menu(request):
-    
-    logado = request.session.get('usuario')
-    print(logado)
+    if request.user.is_authenticated:
+        logado = request.session.get('username')
+        print(logado)
     if logado is None:
         request.session.clear()
         return render(request, 'index.html')
@@ -73,9 +73,9 @@ def menu(request):
         return render(request, 'menu.html')
 
 def rendimento(request):
-   
-    logado = request.session.get('usuario')
-    print(logado)
+    if request.user.is_authenticated:
+        logado = request.session.get('username')
+        print(logado)
     if logado  is None:
         request.session.clear()
         return render(request, 'index.html')
@@ -85,8 +85,9 @@ def rendimento(request):
 
 
 def holerite(request):
-    logado = request.session.get('usuario')
-    print(logado)
+    if request.user.is_authenticated:
+        logado = request.session.get('username')
+        print(logado)
     if logado is  None:
         return render(request, 'index.html')
     else:
