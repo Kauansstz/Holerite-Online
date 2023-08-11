@@ -5,6 +5,8 @@ import banco
 from cx_Oracle import IntegrityError
 from aut.autenticacao import OtherSystemAuthBackend
 
+
+
 # Create your views here.
 cache.clear()
 # Identificar se o usuário existe
@@ -21,7 +23,7 @@ def home(request ):
         print(user)
         if user is not None:
         # Authenticates the user in the admin session
-            login(request, user)
+            # login(request, user)
             return render(request, 'menu.html')
         else:
             return render(request, 'index.html', {'error_message': 'Usuário ou senha incorreto.'})
@@ -41,20 +43,22 @@ def cadastro(request):
         email = request.POST.get('email')
         print(nome)
         
-        try:   
+        try:
             banco.sql_inserir(f"""INSERT INTO tb_login
-                      ( nome_completo,
-                        email,
-                        login,
-                        senha)
-                      VALUES(
-                        '{nome.upper()}',
-                        '{email.upper()}',
-                        '{login.upper()}',
-                        '{senha.upper()}'
-                      )""")
+                        ( nome_completo,
+                            email,
+                            login,
+                            senha)
+                        VALUES(
+                            '{nome.upper()}',
+                            '{email.upper()}',
+                            '{login.upper()}',
+                            '{senha.upper()}'
+                        )""")
+            
             print(login)
             return render(request, 'index.html', {'error_message':'Usuário cadastrado!' })
+           
         except IntegrityError:
             return render(request, 'cadastro.html', {'error_message': 'login ou email já cadastrado!'})
     else:
@@ -63,14 +67,16 @@ def cadastro(request):
 # Identificar se o usuário existe
 # Configuração do Menu
 def menu(request):
-    if request.user.is_authenticated:
-        logado = request.session.get('username')
-        print(logado)
-    if logado is None:
-        request.session.clear()
-        return render(request, 'index.html')
-    else:
-        return render(request, 'menu.html')
+    try:
+        if request.user.is_authenticated:
+            logado = request.session.get()
+            print(logado)
+    except UnboundLocalError:
+        if logado is None:
+            request.session.clear()
+            return render(request, 'index.html')
+        else:
+            return render(request, 'menu.html')
 
 def rendimento(request):
     if request.user.is_authenticated:

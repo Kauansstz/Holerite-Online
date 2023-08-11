@@ -1,4 +1,5 @@
 from django.contrib.auth.backends import ModelBackend
+from django.shortcuts import render
 from django.contrib.auth.models import User
 import banco
 
@@ -26,6 +27,8 @@ class OtherSystemAuthBackend(ModelBackend):
                     user = User.objects.create_user(username, password=password, is_staff=True, is_superuser=False)
                     user.save()
                 return user
+            else:
+                return render(request, 'menu.html')
         return None
 
 
