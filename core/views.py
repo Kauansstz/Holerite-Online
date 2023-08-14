@@ -1,15 +1,17 @@
 from django.shortcuts import render
 from django.core.cache import cache
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 import banco
 from cx_Oracle import IntegrityError
 from aut.autenticacao import OtherSystemAuthBackend
 
 
 
+
 # Create your views here.
 cache.clear()
 # Identificar se o usuário existe
+
 def home(request ):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -81,6 +83,7 @@ def menu(request):
 def rendimento(request):
     if request.user.is_authenticated:
         logado = request.session.get('username')
+        
         print(logado)
     if logado  is None:
         request.session.clear()
@@ -89,16 +92,18 @@ def rendimento(request):
         
         return render(request, 'rendimento.html')
 
-
 def holerite(request):
-    if request.user.is_authenticated:
-        logado = request.session.get('username')
-        print(logado)
-    if logado is  None:
-        return render(request, 'index.html')
-    else:
-        request.session.clear()
-        return render(request, 'holerite.html')
+        if request.user.is_authenticated:
+                username = home('username')
+                user = authenticate(request, username=username)
+                if user is not None:
+                    result = banco.sql_query(f"""SELECT COUNT(*) FROM TB_LOGIN WHERE login = '{username}'""")
+                    print('result')
+                    if result == 1:
+                        return render(request, 'holerite.html')
+
+                else:
+                    return render(request, 'index.html')
 # Configuração do Menu
 
 # voltar
