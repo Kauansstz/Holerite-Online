@@ -81,29 +81,12 @@ def menu(request):
             return render(request, 'menu.html')
 
 def rendimento(request):
-    if request.user.is_authenticated:
-        logado = request.session.get('username')
-        
-        print(logado)
-    if logado  is None:
-        request.session.clear()
-        return render(request, 'index.html')
-    else:
-        
         return render(request, 'rendimento.html')
 
 def holerite(request):
-        if request.user.is_authenticated:
-                username = home('username')
-                user = authenticate(request, username=username)
-                if user is not None:
-                    result = banco.sql_query(f"""SELECT COUNT(*) FROM TB_LOGIN WHERE login = '{username}'""")
-                    print('result')
-                    if result == 1:
-                        return render(request, 'holerite.html')
+            return render(request, 'holerite.html')
 
-                else:
-                    return render(request, 'index.html')
+                
 # Configuração do Menu
 
 # voltar
