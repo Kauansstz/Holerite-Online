@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.core.cache import cache
-from django.contrib.auth import login, authenticate
-import banco
-from cx_Oracle import IntegrityError
+from  database import banco
 from aut.autenticacao import OtherSystemAuthBackend
 
 
@@ -14,12 +12,12 @@ cache.clear()
 
 def home(request ):
     if request.method == 'POST':
-        username = request.POST.get('username')
+        registration = request.POST.get('registration')
         password = request.POST.get('password')
 
         user = OtherSystemAuthBackend.authenticate('', 
                                                         request, 
-                                                        username=username.strip(), 
+                                                        registration=registration.strip(), 
                                                         password=password, 
                                                         backend='autenticacao.criar_usuario.OtherSystemAuthBackend')
         print(user)
@@ -35,36 +33,7 @@ def home(request ):
     
 
 
-def cadastro(request):
-    if request.method == 'POST' and  request.user.is_authenticated:
-        # Verificar se não tem login e email duplicado
-        # Verificar se não tem login e email duplicado
-        nome = request.POST.get('nome')
-        login = request.POST.get('nickname')
-        senha = request.POST.get('pass')
-        email = request.POST.get('email')
-        print(nome)
-        
-        try:
-            banco.sql_inserir(f"""INSERT INTO tb_login
-                        ( nome_completo,
-                            email,
-                            login,
-                            senha)
-                        VALUES(
-                            '{nome.upper()}',
-                            '{email.upper()}',
-                            '{login.upper()}',
-                            '{senha.upper()}'
-                        )""")
-            
-            print(login)
-            return render(request, 'index.html', {'error_message':'Usuário cadastrado!' })
-           
-        except IntegrityError:
-            return render(request, 'cadastro.html', {'error_message': 'login ou email já cadastrado!'})
-    else:
-        return render(request, 'cadastro.html')
+
 
 # Identificar se o usuário existe
 # Configuração do Menu
@@ -81,10 +50,12 @@ def menu(request):
             return render(request, 'menu.html')
 
 def rendimento(request):
-        return render(request, 'rendimento.html')
+            return render(request, 'rendimento.html')
+       
 
 def holerite(request):
-            return render(request, 'holerite.html')
+        {"result" : 'banco.sql_query(f"""select * from tb_image""")'}
+        return render(request, 'holerite.html')
 
                 
 # Configuração do Menu

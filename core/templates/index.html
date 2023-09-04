@@ -29,8 +29,8 @@
       <form method="post" action="{% url 'index' %}">{% csrf_token %}
         
         <div>
-         <h3 class="conf">Usuário</h3> 
-          <input style="width: 200px; height: 25px; border: 1px solid rgb(209, 206, 206) ; margin-top: 20px; " type="text" placeholder="Usuário" name="username">
+         <h3 class="conf">Mátricula</h3> 
+          <input style="width: 200px; height: 25px; border: 1px solid rgb(209, 206, 206) ; margin-top: 20px; " type="text" placeholder="Mátricula" name="registration">
           <br>
           <h3 class="conf">Senha</h3>
           <input style="width: 200px; height: 25px; border: 1px solid rgb(209, 206, 206) ; margin-top: 20px; " type="password" placeholder="Senha" name="password">
@@ -40,8 +40,6 @@
           {% bootstrap_messages %} {{ error_message }}
         </div>
         
-        <a href="{%url 'cadastro' %}" class="cadas">Não possui cadastro?</a>
-        <div>
           <button id="bt_entrada" type="submit">
             Entrar
           </button>

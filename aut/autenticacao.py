@@ -1,13 +1,13 @@
 from django.contrib.auth.backends import ModelBackend
 from django.shortcuts import render
 from django.contrib.auth.models import User
-import banco
+from database import banco
 
 
 class OtherSystemAuthBackend(ModelBackend):
-    def authenticate(self, request, username=None, password=None, **kwargs):
+    def authenticate(self, request, registration=None, password=None, **kwargs):
         # authentication logic with the Consinco system
-        resultado = banco.sql_query(f"""SELECT COUNT(*) FROM tb_login WHERE login  = '{username.upper()}' and senha = '{password.upper()}'""")
+        resultado = banco.sql_query(f"""SELECT COUNT(*) FROM tb_funcionarios WHERE matricula  = '{registration}' and senha = '{password.upper()}'""")
         print(resultado)
 
         # Storing column values in different variables
@@ -16,15 +16,15 @@ class OtherSystemAuthBackend(ModelBackend):
             status.append(linha[0])
             
 
-        if username and password:
+        if registration and password:
             if status[0] == 0:
                 # If credentials are correct, create a user in Django
                 try:
-                    user = User.objects.get(username=username)
+                    user = User.objects.get(registration=registration)
                 except User.DoesNotExist:
                     # Create a new user with the provided password from Consinco
                     
-                    user = User.objects.create_user(username, password=password, is_staff=True, is_superuser=False)
+                    user = User.objects.create_user(registration, password=password, is_staff=True, is_superuser=False)
                     user.save()
                 return user
             else:

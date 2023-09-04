@@ -6,7 +6,7 @@ __pycache__
 media
 *.sh
 core/migrations/*
-
+database/
 # Backup files #
 *.bak
 

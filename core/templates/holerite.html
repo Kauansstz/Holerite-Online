@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load bootstrap4 %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,8 +41,8 @@
                     
                 </ul>
             </nav>
-            <img src="{% static 'img/exemplo-de-holerite.jpg' %}" alt="" style="width: 1000px; margin-left: 100px;">
-          
+            {% comment %} <img src="{% static 'img/exemplo-de-holerite.jpg' %}" alt="" style="width: 1000px; margin-left: 100px;"> {% endcomment %}
+            {% bootstrap_messages %} {{ result }}
         </form>
         
     </body>
