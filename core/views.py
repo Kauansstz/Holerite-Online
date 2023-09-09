@@ -54,7 +54,7 @@ def rendimento(request):
        
 
 def holerite(request):
-        {"result" : 'banco.sql_query(f"""select * from tb_image""")'}
+        
         return render(request, 'holerite.html')
 
                 
