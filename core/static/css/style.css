@@ -1,114 +1,112 @@
-  /* Configuração de index */
-  .master{
-    text-align: center;  
-    box-shadow: 0px 15px 15px rgb(22,22,22);
-    border-radius: 20px;
-    margin: 0 auto;
-    background:  white;
+:root {
+    --color-primary: #269fe6;
+    --color-primary-hover: #2086c2;
+    --color-primary-dark: #13141f;
+    --color-primary-dark-hover: #212336;
+    --color-primary-light: #d4ecfa;
+    --color-primary-light-hover: #bdd8e7;
+  
+    --color-white: #fff;
+    --color-black: #000;
+    --color-blue: 	#0000FF;
+    --color-Violet: #ee82ee;
+  
+    --color-dark-text: #444;
+    --color-info-light: #cce5ff;
+    --color-debug-light: #cce5ff;
+    --color-success-light: #d4edda;
+    --color-alert-light: #fff3cd;
+    --color-warning-light: #fff3cd;
+    --color-error-light: #f8d7da;
+  
+    --color-info-dark: #4d86c4;
+    --color-debug-dark: #4d86c4;
+    --color-success-dark: #4a9c5d;
+    --color-alert-dark: #927f40;
+    --color-warning-dark: #927f40;
+    --color-error-dark: #da525d;
+  
+    --color-gray-0: #f9f9f9;
+    --color-gray-1: #e0e0e0;
+    --color-gray-2: #c7c7c7;
+    --color-gray-3: #aeaeae;
+    --color-gray-4: #959595;
+    --color-gray-5: #7d7d7d;
+    --color-gray-6: #646464;
+    --color-gray-7: #4b4b4b;
+    --color-gray-8: #323232;
+    --color-gray-9: #191919;
+  
+    --font-primary: sans-serif;
+    --font-headings: 'Roboto Slab', serif;
+  
+    --spacing-gutter-medium: 3rem;
+    --spacing-gutter-large: 4rem;
+}
+
+/* Configuração do Index.html */
+.master{
     width: 500px;
     height: 500px;
- } 
+    margin: 0 auto;
+    text-align: center;  
+    box-shadow: 0px 15px 15px var(--color-black);
+    border-radius: 20px;
+    background:  var(--color-white) ;
+}
 
-#logo-grupo{
+.img-master{
     display: flex;
     justify-content: center;
-    margin-top:120px; 
-    font-size: 60px;
-    
+    margin-top:170px;
 }
-#frase{
+
+#tittle{
     width: 50px;
-   
 }
 
-
-.boss{
-    font-family:Arial, Helvetica, sans-serif;
-    margin-top: 10px;
-}
-
-#bt_entrada{
-    background-color: blue; 
-    color: rgb(255, 255, 255); 
-    width: 200px; 
-    height: 40px; 
-    font-size: 20px;
-    margin-top: 40px;
-    
-}
-
-.conf{
+.tittle-box{
     display: flex;
     justify-content: left;
     margin-left: 150px ;
     margin-top: 20px;
 }
 
-.cadas{
-    display: flex;
-    justify-content: left;
-    margin-left: 150px ;
-    text-decoration: none;
-    color: black;
-    margin-top: 30px;
-    font-size: 13px;
+.box{
+    width: 200px; 
+    height: 25px; 
+    border: 1px solid var(--color-black); 
+    border-radius: 5px;
 }
-.erro{
+.error{
     text-align: center;
-    color: red;
+    color: var(--color-error-dark);
     height: 5px;
 }
+#box-enter{
+    background-color: var(--color-blue); 
+    color: var(--color-white); 
+    width: 200px; 
+    height: 40px; 
+    font-size: 20px;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+/* Configuração do Index.html */
 
- /* Configuração de index */
- /* Configuração do Menu */
+.menu a{
+    display: flex;
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 25px;
+    padding: 30px 4%;
+    margin-bottom: 20px;
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Outfit", sans-serif;
 }
-body{
-    height: 100vh;
-    
-}
-#ph{
-    display: flex;
-    justify-content: center;
-    color: rgb(0, 0, 0);
-    margin-top: 50px;
-}
-#notificion{
-    display: flex;
-    justify-content: center;
-    color: rgb(255, 255, 255);
-    margin-top: 80px;
-    margin-left: 500px;
-    height: 50px ;
-    width: 500px;
-    background-color: #ef6e6e;
-    padding: 10px ;
-    font-weight: bold;
-}
-.sub{
-    margin-left: 20px;
-    color: green;
-}
-#descricao{
-    color: black;
-    display: flex;
-   
-    justify-content: left;
-    margin-left: 500px;
-    height: 200px ;
-    width: 500px;
-    background-color:#3e5569;
-    box-shadow: 10px 20px 15px rgb(0, 0, 0);
-}
-nav.menu-lateral{
+nav.menu{
     width: 80px;
     height: 100%;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--color-black);
     padding:  40px 0 40px 1%;
     box-shadow: 3px 0 0 green;
     position: fixed;
@@ -117,132 +115,32 @@ nav.menu-lateral{
     overflow: hidden;
     transition: 1s;
 } 
- nav.menu-lateral:hover{        
+ nav.menu:hover{     
     width: 300px;
-}/*quando passar o cursor acima ira expandir o menu */
-.btn-expandir{
-    width: 100px;
-    padding-left: 10px;
-    color: white;
-    font-size: 24px;
-    margin-left: 10px;
-    cursor: pointer;
+ }
+ .txt-link{
+    margin-left: 50px;
 }
 
-
-
-.menu-lateral a{
-    display: flex;
-    color: white;
-    text-decoration: none;
-    font-size: 25px;
-    padding: 30px 4%;
-    margin-bottom: 20px;
-
-}
-.txt-link{
-    margin-left: 20px;
-}
-
-.holerite:hover{
-    background: violet;
+.menu-holerite:hover{
+    background: var(--color-Violet);
     transition: 2s;
+    margin-left: -60px;
 }
 .icon{
-    margin-left: 20px;
+    margin-left: 0px;
 }
 
- /* Configuração do Menu */
-
- /* Configuração do cadastro */
- .logo-cas{
-    text-align: center;  
-    box-shadow: 0px 15px 15px rgb(22,22,22);
-    border-radius: 20px;
-    margin: 0 auto;
-    background:  white;
-    width: 500px;
-    height: 500px;
-    margin-top: 50px;
- }
-
- #name{
-    display: flex;
-    justify-content: left;
-    margin-top: 50px;
-    margin-left: 100px;
- }
-#bnt_name{
-    display: flex;
-    justify-content: left;
-    margin-top: -20px;
-    margin-left: 250px;
-    border: 1px solid rgb(209, 206, 206);
-    
+.expand-button{
+            width: 100px;
+            padding-left: 10px;
+            color: var(--color-white);
+            font-size: 24px;
+            margin-left: 10px;
+            cursor: pointer;
 }
 
- #nickname{
-    display: flex;
-    justify-content: left;
-    margin-top: 15px;
+.exemple{
+    width: 1000px; 
     margin-left: 100px;
- }
-
- #bnt_nickname{
-    display: flex;
-    margin-top: -20px;
-    text-align: left;
-    margin-left: 250px; 
-    border: 1px solid rgb(209, 206, 206)
- }
-
- #pass{
-  display: flex;
-  justify-content: left;
-  margin-top: 15px;
-  margin-left: 100px;
- }
-
- #bnt_pass{
-  display: flex;
-  justify-content: left;
-  margin-top: -20px;
-  margin-left: 250px;
-  border: 1px solid rgb(209, 206, 206)
- }
-
-#mail{
-    display: flex;
-    justify-content: left;
-    margin-left: 100px;
-    margin-top: 20px;
-    
- }
-
-#bnt_mail{
-    display: flex;
-    margin-top: -20px;
-    text-align: left;
-    margin-left: 250px; 
-    border: 1px solid rgb(209, 206, 206)
- }
-
- /* Botoes */
- #cadastrar{
-    
-    margin-top: 100px;
-    margin-left: 50px;
-    background-color: blue;
-    color: white;
-    width: 100px;
-    height: 30px;
- }
-
- #voltar{
-    background-color: blue;
-    color: white;
-    width: 100px;
-    height: 30px;
- }
- /* Botoes */
- /* Configuração do cadastro */
+}

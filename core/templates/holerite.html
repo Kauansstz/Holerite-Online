@@ -13,37 +13,34 @@
         <title>Holerite do colaborador</title>
     </head>
     <body >
-        
         <form action="{% url 'index'%}" method="post">{% csrf_token %}
-            <nav class="menu-lateral">
-                <div class="btn-expandir">
+            <nav class="menu">
+                <div class="expand-button">
                     <i class="bi bi-list"></i>
                 </div>
                 <ul>
-                    <li class="holerite">
+                    <li class="menu-holerite">
                         <a href="{% url 'holerite'%}">
                             <span class="icon"><i class="bi bi-x-diamond-fill"></i></span>
                             <span class="txt-link">Holerite</span>
                         </a>
                     </li>
-                    <li class="holerite">
+                    <li class="menu-holerite">
                         <a href="{% url 'rendimento'%}">
                             <span class="icon"><i class="bi bi-cash-stack"></i></span>
                             <span class="txt-link">Rendimento</span>
                         </a>
                     </li>
-                    <li class="holerite">
+                    <li class="menu-holerite">
                         <a href="{%url 'index'%}">
                             <span class="icon"><i class="bi bi-power"></i></span>
                             <span class="txt-link">Sair</span>
                         </a>
                     </li>
-                    
                 </ul>
             </nav>
-            {% comment %} <img src="{% static 'img/exemplo-de-holerite.jpg' %}" alt="" style="width: 1000px; margin-left: 100px;"> {% endcomment %}
+            {% comment %} <img src="{% static 'img/exemplo-de-holerite.jpg' %}" alt="" class="exemple"> {% endcomment %}
             {% bootstrap_messages %} {{ result }}
         </form>
-        
     </body>
 </html>
