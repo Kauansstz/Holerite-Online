@@ -38,15 +38,15 @@ def home(request ):
 # Identificar se o usuário existe
 # Configuração do Menu
 def menu(request):
-    try:
-        if request.user.is_authenticated:
-            logado = request.session.get()
-            print(logado)
-    except UnboundLocalError:
-        if logado is None:
-            request.session.clear()
-            return render(request, 'index.html')
-        else:
+    # try:
+    #     if request.user.is_authenticated:
+    #         logado = request.session.get()
+    #         print(logado)
+    # except UnboundLocalError:
+    #     if logado is None:
+    #         request.session.clear()
+    #         return render(request, 'index.html')
+    #     else:
             return render(request, 'menu.html')
 
 def rendimento(request):

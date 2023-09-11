@@ -8,8 +8,9 @@
   
     --color-white: #fff;
     --color-black: #000;
-    --color-blue: 	#0000FF;
+    --color-blue: #0000FF;
     --color-Violet: #ee82ee;
+    --color-salmon:#ef6e6e ; 
   
     --color-dark-text: #444;
     --color-info-light: #cce5ff;
@@ -94,6 +95,7 @@
 }
 /* Configuração do Index.html */
 
+/* Configuração do menu lateral */
 .menu a{
     display: flex;
     color: var(--color-white);
@@ -132,15 +134,58 @@ nav.menu{
 }
 
 .expand-button{
-            width: 100px;
-            padding-left: 10px;
-            color: var(--color-white);
-            font-size: 24px;
-            margin-left: 10px;
-            cursor: pointer;
+    width: 100px;
+    padding-left: 10px;
+    color: var(--color-white);
+    font-size: 24px;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 .exemple{
     width: 1000px; 
     margin-left: 100px;
 }
+/* Configuração do menu lateral */
+
+/* Configuração do Painel principal */
+
+#Contributor-Dashboard{
+    display: flex;
+    justify-content: center;
+    color: var(--color-black);
+    margin-top: 50px;
+}
+
+
+
+#notificion{
+    display: flex;
+    justify-content: center;
+    color: var(--color-white);
+    margin-top: 80px;
+    margin-left: 34rem;
+    height: 50px ;
+    width: 50rem;
+    background-color: var(--color-salmon);
+    padding: 10px ;
+    font-weight: bold;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
+}
+
+.description{
+    display: flex;
+    justify-content: center;
+    margin-left: 34rem;
+    height: 200px ;
+    width: 51.2rem;
+    color: var(--color-white);
+    background-color:var(--color-gray-6);
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
+}
+
+#sub{
+    margin-left: 20px;
+    color:var(--color-success-dark);
+}
+/* Configuração do Painel principal */

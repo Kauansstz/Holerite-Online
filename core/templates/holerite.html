@@ -13,34 +13,43 @@
         <title>Holerite do colaborador</title>
     </head>
     <body >
-        <form action="{% url 'index'%}" method="post">{% csrf_token %}
-            <nav class="menu">
-                <div class="expand-button">
-                    <i class="bi bi-list"></i>
-                </div>
-                <ul>
-                    <li class="menu-holerite">
-                        <a href="{% url 'holerite'%}">
-                            <span class="icon"><i class="bi bi-x-diamond-fill"></i></span>
-                            <span class="txt-link">Holerite</span>
-                        </a>
-                    </li>
-                    <li class="menu-holerite">
-                        <a href="{% url 'rendimento'%}">
-                            <span class="icon"><i class="bi bi-cash-stack"></i></span>
-                            <span class="txt-link">Rendimento</span>
-                        </a>
-                    </li>
-                    <li class="menu-holerite">
-                        <a href="{%url 'index'%}">
-                            <span class="icon"><i class="bi bi-power"></i></span>
-                            <span class="txt-link">Sair</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            {% comment %} <img src="{% static 'img/exemplo-de-holerite.jpg' %}" alt="" class="exemple"> {% endcomment %}
-            {% bootstrap_messages %} {{ result }}
-        </form>
+        
+    <form action="{% url 'index'%}" method="post">{% csrf_token %}
+        <nav class="menu">
+            <div class="expand-button">
+                <i class="bi bi-list"></i>
+            </div>
+            <ul>
+                <li class="menu-holerite">
+                    <a href="{% url 'menu'%}">
+                        <span class="icon"><i class="bi bi-house-fill"></i></span>
+                        <span class="txt-link">Home</span>
+                    </a>
+                </li>
+                <li class="menu-holerite">
+                    <a href="{% url 'holerite'%}">
+                        <span class="icon"><i class="bi bi-x-diamond-fill"></i></span>
+                        <span class="txt-link">Holerite</span>
+                    </a>
+                </li>
+                <li class="menu-holerite">
+                    <a href="{% url 'rendimento'%}">
+                        <span class="icon"><i class="bi bi-cash-stack"></i></span>
+                        <span class="txt-link">Rendimento</span>
+                    </a>
+                </li>
+                <li class="menu-holerite">
+                    <a href="{%url 'index'%}">
+                        <span class="icon"><i class="bi bi-power"></i></span>
+                        <span class="txt-link">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+         <img src="{% static 'img/exemplo-de-holerite.jpg' %}" alt="" class="exemple"> 
+        {% bootstrap_messages %} {{ result }}
+        
+    </form>
+   
     </body>
 </html>
