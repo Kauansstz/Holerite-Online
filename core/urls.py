@@ -10,8 +10,8 @@ from django.contrib.auth import views
 urlpatterns = [
     path('', home, name='index'),
     path('menu/',menu, name='menu'),
-    path('holerite',holerite, name='holerite'),
-    path('rendimento',rendimento, name='rendimento'),
+    path('holerite/',holerite, name='holerite'),
+    path('rendimento/',rendimento, name='rendimento'),
     path('logout/', views.LogoutView.as_view(next_page='index'), name='logout'),
     
     

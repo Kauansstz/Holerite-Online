@@ -11,25 +11,28 @@ class OtherSystemAuthBackend(ModelBackend):
         print(resultado)
 
         # Storing column values in different variables
-        status = []
-        for linha in resultado:
-            status.append(linha[0])
-            
+        
+        if resultado[0][0] == 1:
+           
+            status = []
+            for linha in resultado:
+                status.append(linha[0])
+                
 
-        if registration and password:
-            if status[0] == 0:
-                # If credentials are correct, create a user in Django
-                try:
-                    user = User.objects.get(registration=registration)
-                except User.DoesNotExist:
-                    # Create a new user with the provided password from Consinco
-                    
-                    user = User.objects.create_user(registration, password=password, is_staff=True, is_superuser=False)
-                    user.save()
-                return user
-            else:
-                return render(request, 'menu.html')
-        return None
+            if registration and password:
+                if status[0] == 0:
+                    # If credentials are correct, create a user in Django
+                    try:
+                        user = User.objects.get(registration=registration)
+                    except User.DoesNotExist:
+                        # Create a new user with the provided password from Consinco
+                        
+                        user = User.objects.create_user(registration, password=password, is_staff=True, is_superuser=False)
+                        user.save()
+                    return user
+                else:
+                    return render(request, 'menu.html')
+            return None
 
 
     def get_user(self, user_id):
