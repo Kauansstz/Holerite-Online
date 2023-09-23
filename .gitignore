@@ -5,7 +5,7 @@
 __pycache__
 media
 *.sh
-core/migrations/*
+paycheck/migrations/*
 database/
 # Backup files #
 *.bak
