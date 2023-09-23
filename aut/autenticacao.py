@@ -7,17 +7,17 @@ from database import banco
 class OtherSystemAuthBackend(ModelBackend):
     def authenticate(self, request, registration=None, password=None, **kwargs):
         # authentication logic with the Consinco system
-        resultado = banco.sql_query(f"""SELECT COUNT(*) FROM tb_funcionarios WHERE matricula  = '{registration}' and senha = '{password.upper()}'""")
+        resultado = banco.sql_query(
+            f"""SELECT COUNT(*) FROM tb_funcionarios WHERE matricula  = '{registration}' and senha = '{password}'"""
+        )
         print(resultado)
 
         # Storing column values in different variables
-        
+
         if resultado[0][0] == 1:
-           
             status = []
             for linha in resultado:
                 status.append(linha[0])
-                
 
             if registration and password:
                 if status[0] == 0:
@@ -26,14 +26,18 @@ class OtherSystemAuthBackend(ModelBackend):
                         user = User.objects.get(registration=registration)
                     except User.DoesNotExist:
                         # Create a new user with the provided password from Consinco
-                        
-                        user = User.objects.create_user(registration, password=password, is_staff=True, is_superuser=False)
+
+                        user = User.objects.create_user(
+                            registration,
+                            password=password,
+                            is_staff=True,
+                            is_superuser=False,
+                        )
                         user.save()
                     return user
                 else:
-                    return render(request, 'menu.html')
+                    return render(request, "menu.html")
             return None
-
 
     def get_user(self, user_id):
         try:

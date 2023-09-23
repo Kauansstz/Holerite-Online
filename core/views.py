@@ -15,18 +15,19 @@ def home(request):
         registration = request.POST.get("registration")
         password = request.POST.get("password")
 
-        # user = OtherSystemAuthBackend.authenticate(request,
-        #                                             registration=registration.strip(),
-        #                                             password=password,
-        #                                             backend='autenticacao.criar_usuario.OtherSystemAuthBackend')
-        # result = banco.sql_query(f"""SELECT (*) FROM TB_FUNCIONARIOS WHERE matricula =  '{registration}' and senha = '{password}' """)
-        # print(user)
-        # if user is not None:
-        # # Authenticates the user in the admin session
-        #     # login(request, user)
-        #     return render(request, 'menu.html')
-        # else:
-        #     return render(request, 'pages/home.html', {'error_message': 'Mátricula ou senha incorreto.'})
+        result = banco.sql_query(
+            f"""SELECT (*) FROM TB_FUNCIONARIOS WHERE matricula =  '{registration}' and senha = '{password}' """
+        )
+        if result[0][0] == 1:
+            # Authenticates the user in the admin session
+            # login(request, user)
+            return render(request, "panel.html")
+        else:
+            return render(
+                request,
+                "pages/home.html",
+                {"error_message": "Matrícula ou senha incorreto."},
+            )
     else:
         return render(request, "pages/home.html")
 
