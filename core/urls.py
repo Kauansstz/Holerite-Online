@@ -8,7 +8,7 @@ from django.contrib.auth import views
 # from .views import index
 
 urlpatterns = [
-    path('', home, name='index'),
+    path('', home, name='home'),
     path('menu/',menu, name='menu'),
     path('holerite/',holerite, name='holerite'),
     path('rendimento/',rendimento, name='rendimento'),

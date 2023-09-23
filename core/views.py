@@ -27,9 +27,9 @@ def home(request ):
             # login(request, user)
             return render(request, 'menu.html')
         else:
-            return render(request, 'index.html', {'error_message': 'Mátricula ou senha incorreto.'})
+            return render(request, 'pages/home.html', {'error_message': 'Mátricula ou senha incorreto.'})
     else:  
-        return render(request, 'index.html')
+        return render(request, 'pages/home.html')
 
     
 

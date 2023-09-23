@@ -1,0 +1,33 @@
+<body style="background: url(static/img/fundo.jpeg);">
+    <div class="master">
+      <div class="img-master">
+        <img src="{{'head.html/carteira.ico' }}" alt="" style="width: 80px;">
+      </div>
+      <h1>
+        <span id="tittle">
+          Holerite Online
+        </span>
+      </h1>
+      <div class="boss">
+        <form action="{% url 'home' %}" method="post" >{% csrf_token %}
+          <div>
+            <h3 class="tittle-box">
+              Mátricula
+            </h3>
+            <input type="text" class="box" placeholder="Mátricula..." name="registration" >
+  
+            <h3 class="tittle-box"> 
+              Senha
+            </h3>
+            <input type="password" class="box" placeholder="Senha..." name="password">
+          </div>
+          <br>
+          <div class="error">
+            {{ error_message }}
+          </div>
+          <button id="box-enter" type="submit">Entrar</button>
+        </div>
+        </form>
+      
+    </div>
+  </body>

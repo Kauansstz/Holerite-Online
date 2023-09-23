@@ -1,0 +1,13 @@
+{% extends 'global/base.html'%}
+
+{% block title %} Painel do Colaborador | {% endblock title %}
+
+{% block content %} 
+<div class="main-content main-content-list container">
+    {% for alterar in core%}
+        {% include 'partials/menu-lateral.html' %}
+    {% empty %}
+        <h1>No  Found Here</h1>
+    {% endfor %}
+</div>
+{% endblock content %}
