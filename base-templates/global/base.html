@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <title>{% block title %} {% endblock title %} Holerite</title>
     {% include "partials/head.html" %}
 </head>
+
 <body>
-    <div class="master">
-        {% include "partials/screen-login.html" %}
-    </div>
+    {% block content %}
+        {% include "partials/menu-lateral.html" %}
+        {% comment %} {% include "partials/notification.html" %} {% endcomment %}
+    {% endblock content  %}
+ 
 </body>
+
 </html>

@@ -12,22 +12,12 @@ cache.clear()
 
 def home(request):
     if request.method == "POST":
-        registration = request.POST.get("registration")
-        password = request.POST.get("password")
-
-        result = banco.sql_query(
-            f"""SELECT (*) FROM TB_FUNCIONARIOS WHERE matricula =  '{registration}' and senha = '{password}' """
-        )
-        if result[0][0] == 1:
-            # Authenticates the user in the admin session
-            # login(request, user)
-            return render(request, "panel.html")
-        else:
-            return render(
-                request,
-                "pages/home.html",
-                {"error_message": "Matrícula ou senha incorreto."},
-            )
+        return render(request, "pages/panel.html")
+    # else:
+    #     return render(
+    #         request,
+    #         "pages/home.html",
+    #         {"error_message": "Matrícula ou senha incorreto."},
     else:
         return render(request, "pages/home.html")
 
@@ -35,7 +25,7 @@ def home(request):
 # Identificar se o usuário existe
 # Configuração do Menu
 def menu(request):
-    return render(request, "panel.html")
+    return render(request, "pages/panel.html")
 
 
 def rendimento(request):

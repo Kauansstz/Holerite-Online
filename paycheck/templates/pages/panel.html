@@ -2,12 +2,7 @@
 
 {% block title %} Painel do Colaborador | {% endblock title %}
 
-{% block content %} 
-<div class="main-content main-content-list container">
-    {% for alterar in paycheck%}
-        {% include 'partials/menu-lateral.html' %}
-    {% empty %}
-        <h1>No  Found Here</h1>
-    {% endfor %}
-</div>
+{% block content %}
+    {% include "partials/notification.html" %}
 {% endblock content %}
+
