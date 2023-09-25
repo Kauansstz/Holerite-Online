@@ -7,9 +7,9 @@
 </head>
 
 <body>
+    {% include "partials/menu-lateral.html" %}
+    
     {% block content %}
-        {% include "partials/menu-lateral.html" %}
-        {% comment %} {% include "partials/notification.html" %} {% endcomment %}
     {% endblock content  %}
  
 </body>

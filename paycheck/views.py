@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.core.cache import cache
 from database import banco
-from aut.autenticacao import OtherSystemAuthBackend
-from django.contrib.sessions import base_session
+
+# from aut.autenticacao import OtherSystemAuthBackend
+# from django.contrib.sessions import base_session
 
 
 # Create your views here.
@@ -29,11 +30,11 @@ def menu(request):
 
 
 def rendimento(request):
-    return render(request, "rendimento.html")
+    return render(request, "pages/performance.html")
 
 
 def holerite(request):
-    return render(request, "holerite.html")
+    return render(request, "pages/holerite.html")
 
 
 # Configuração do Menu
