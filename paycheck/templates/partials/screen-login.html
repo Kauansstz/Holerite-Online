@@ -4,30 +4,25 @@
         <img src="{{'static/img/carteira.ico' }}" alt="" style="width: 80px;">
       </div>
       <h1>
-        <span id="tittle">
+        <span class="tittle">
           Holerite Online
         </span>
       </h1>
-      <div class="boss">
-        <form action="{% url 'home' %}" method="post" >{% csrf_token %}
-          <div>
-            <h3 class="tittle-box">
-              Matrícula
-            </h3>
-            <input type="text" class="box" placeholder="Mátricula..." name="registration" >
-  
-            <h3 class="tittle-box"> 
-              Senha
-            </h3>
-            <input type="password" class="box" placeholder="Senha..." name="password">
+      <div class='form-content conteiner'>
+        <form action="{% url 'home' %}" method="POST" >{% csrf_token %}
+          <div class="form-content form-content-grid">
+            {% for field in form %}
+            <div class="form-group">
+              <label for="{{field.id_for_label}}">{{field.label}}</label>
+              {{field}}
+            </div>
+            {% endfor %}
           </div>
-          <br>
-          <div class="error">
-            {{ error_message }}
+          <div class='form-content'>  
+            <button  type="submit">Entrar</button>
           </div>
-          <button id="box-enter" type="submit">Entrar</button>
         </div>
         </form>
       
     </div>
-  </body>
+  

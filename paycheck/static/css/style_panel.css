@@ -1,0 +1,98 @@
+:root {
+    --color-primary: #269fe6;
+    --color-primary-hover: #2086c2;
+    --color-primary-dark: #13141f;
+    --color-primary-dark-hover: #212336;
+    --color-primary-light: #d4ecfa;
+    --color-primary-light-hover: #bdd8e7;
+  
+    --color-white: #fff;
+    --color-black: #000;
+    --color-blue: #0000FF;
+    --color-Violet: #ee82ee;
+    --color-salmon:#ef6e6e ; 
+  
+    --color-dark-text: #444;
+    --color-info-light: #cce5ff;
+    --color-debug-light: #cce5ff;
+    --color-success-light: #d4edda;
+    --color-alert-light: #fff3cd;
+    --color-warning-light: #fff3cd;
+    --color-error-light: #f8d7da;
+  
+    --color-info-dark: #4d86c4;
+    --color-debug-dark: #4d86c4;
+    --color-success-dark: #4a9c5d;
+    --color-alert-dark: #927f40;
+    --color-warning-dark: #927f40;
+    --color-error-dark: #da525d;
+  
+    --color-gray-0: #f9f9f9;
+    --color-gray-1: #e0e0e0;
+    --color-gray-2: #c7c7c7;
+    --color-gray-3: #aeaeae;
+    --color-gray-4: #959595;
+    --color-gray-5: #7d7d7d;
+    --color-gray-6: #646464;
+    --color-gray-7: #4b4b4b;
+    --color-gray-8: #323232;
+    --color-gray-9: #191919;
+  
+    --font-primary: sans-serif;
+    --font-headings: 'Roboto Slab', serif;
+    --font-size: Arial, sans-serif;
+  
+    --spacing-gutter-medium: 3rem;
+    --spacing-gutter-large: 4rem;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.tittle-master{
+    font-family: var(--font-size);
+}
+
+#Contributor-Dashboard{
+    display: flex;
+    justify-content: center;
+    color: var(--color-black);
+    margin-top: 50px;
+}
+
+
+
+.notificion{
+    display: flex;
+    justify-content: center;
+    color: var(--color-white);
+    margin-top: 80px;
+    margin-left: 22rem;
+    height: 50px ;
+    width: 50rem;
+    background-color: var(--color-salmon);
+    padding: 10px ;
+    font-weight: bold;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
+}
+
+.description{
+    display: flex;
+    justify-content: center;
+    margin-left: 22rem;
+    height: 200px ;
+    width: 51.2rem;
+    color: var(--color-white);
+    background-color:var(--color-gray-6);
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
+}
+
+
+
+#sub{
+    margin-left: 1rem;
+    color:var(--color-success-dark);
+}
+
