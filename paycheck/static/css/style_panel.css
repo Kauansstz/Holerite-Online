@@ -58,7 +58,7 @@ body{
 #Contributor-Dashboard{
     display: flex;
     justify-content: center;
-    color: var(--color-black);
+    color: var(--color-white);
     margin-top: 50px;
 }
 

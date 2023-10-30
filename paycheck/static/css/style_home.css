@@ -45,6 +45,9 @@
     --spacing-gutter-large: 4rem;
 }
 
+body{
+    background-color: var(--color-gray-5);
+}
 .master{
     width: 500px;
     height: 500px;

@@ -6,7 +6,7 @@ from django.contrib.auth import views
 # from .views import index
 
 urlpatterns = [
-    path("", home, name="home"),
+    path("", home, name="home"),  # type: ignore
     path("menu/", menu, name="panel"),
     path("holerite/", holerite, name="holerite"),
     path("rendimento/", rendimento, name="rendimento"),

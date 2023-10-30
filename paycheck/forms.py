@@ -32,3 +32,15 @@ class RegisterForm(forms.ModelForm):
             "password",
         ]
         labels = {"email": "E-mail"}
+
+        def clean_password(self):
+            username = self.cleaned_data.get("password")  # type: ignore
+            if User.objects.filter(username=username).exists():
+                raise forms.ValidationError("Este nome de usuário já está em uso.")
+            return username
+
+        def clean_email(self):
+            email = self.clean_data.get("email")  # type: ignore
+            if User.objects.filter(email=email).exists():
+                raise forms.ValidationError("Este email já está em uso.")
+            return email
